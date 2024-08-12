@@ -17,7 +17,7 @@ class Rowhearders extends StatelessWidget {
           Text(
             title,
             style:
-                Stylings.subHeader,
+                Stylings.subHeader.copyWith(color: Colors.white),
           ),
           InkWell(
               onTap: () {},

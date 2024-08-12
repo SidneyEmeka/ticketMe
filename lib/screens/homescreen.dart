@@ -19,56 +19,82 @@ class _HomescreenState extends State<Homescreen> {
       backgroundColor: Stylings.bgColor,
       body: ListView(
         children: [
-          Container(
-            padding: const EdgeInsets.only(top: 20, left: 15, right: 15),
-            height: size.height,
-            width: size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //user greeting and pfp
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Stack(
+            children: [
+              //circular black background
+              Container(
+                height: size.height/3,
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
+                ),
+              ),
+              //title-tickets
+              Container(
+                padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
+                height: size.height/2,
+                width: size.width,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    //greeting
-                     Column(
+                    //user greeting and pfp
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("ONYE IJE", style: Stylings.header),
-                        Text("Good morning Ekene", style: Stylings.subHeader.copyWith(fontWeight: FontWeight.w600))
+                        //greeting
+                         Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("ONYE IJE", style: Stylings.header),
+                            Text("Good morning Ekene", style: Stylings.subHeader.copyWith(fontWeight: FontWeight.w600, color: Colors.white))
+                          ],
+                        ),
+                        //pfp
+                        Container(
+                          width: 50,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(100),
+                            image: DecorationImage(image: AssetImage(("${Stylings.imgPath}/market.jpg")),fit: BoxFit.cover)
+                          ),
+                          //child: Image.asset("assets/images/market.jpg", fit: BoxFit.cover,),
+                        )
                       ],
                     ),
-                    //pfp
-                    Container(
-                      width: 60,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(image: AssetImage(("${Stylings.imgPath}/market.jpg")),fit: BoxFit.cover)
-                      ),
-                      //child: Image.asset("assets/images/market.jpg", fit: BoxFit.cover,),
+                   //current state
+                   Row(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                        Text("Current Location - ", style: Stylings.subHeader.copyWith(fontWeight: FontWeight.w400, color: Colors.white)),
+                        Text("Enugu", style: Stylings.subHeader.copyWith(fontWeight: FontWeight.w400, color: Colors.white)),
+                     ],
+                   ),
+                    ///Upcoming Flights Section
+                    const Rowhearders(title: 'Upcoming Travels',),
+                    SizedBox(
+                      width: size.width,
+                      child: const SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                            Ticketpreviews(),
+                            Ticketpreviews(),
+                            Ticketpreviews(),
+                          ])),
                     )
                   ],
                 ),
-               //current state
-               Row(
-                 mainAxisAlignment: MainAxisAlignment.start,
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                    Text("Current Location - ", style: Stylings.subHeader.copyWith(fontWeight: FontWeight.w500)),
-                    Text("Enugu", style: Stylings.subHeader),
-                 ],
-               ),
-                ///Upcoming Flights Section
-                const Rowhearders(title: 'Upcoming Travels',),
-                const Ticketpreviews()
-              ],
-            ),
-          )
+              ),
+
+              //Next section
+            ],
+          ),
         ],
       ),
     );
