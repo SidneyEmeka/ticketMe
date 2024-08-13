@@ -1,9 +1,11 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:onyeije/utils/styles/stylings.dart';
 
 import '../models/data.dart';
 import '../utils/widgs/fleettile.dart';
+import '../utils/widgs/quickcards.dart';
 import '../utils/widgs/rowhearders.dart';
 import '../utils/widgs/ticketpreviews.dart';
 
@@ -113,13 +115,13 @@ class _HomescreenState extends State<Homescreen> {
                                 horizontal: 10, vertical: 5),
                             child: Text(
                               "Buy Ticket",
-                              style: Stylings.subHeader
+                              style: Stylings.lilgreyText
                                   .copyWith(color: Colors.white),
                             )),
                       ],
                     ),
                     const SizedBox(
-                      height: 13,
+                      height: 25,
                     ),
                     //current state
 
@@ -128,7 +130,7 @@ class _HomescreenState extends State<Homescreen> {
                       title: 'Tickets',
                       route: "tickets",
                     ),
-                    //SizedBox(height: 5),
+                    //SizedBox(height: 5),iopnjn
                     SizedBox(
                       width: size.width,
                       child: SingleChildScrollView(
@@ -166,22 +168,105 @@ class _HomescreenState extends State<Homescreen> {
               ),
             ],
           ),
-          //Fleet title
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: Rowhearders(
-              title: "Available Fleet",
-              isBgWhite: true,
-              route: "fleet",
-            ),
-          ),
-          //thefleets
           SizedBox(
-            height: size.height / 2.43,
-            child: const SingleChildScrollView(
+            height: size.height / 2.33,
+            child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              child: Column(
-                children: [],
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  children: [
+                    const Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Quickcards(
+                          icon: Icons.airline_seat_recline_normal_rounded,
+                          title: "Book a Seat",
+                          desc: "Reserve seat(s) for your next trip",
+                        ),
+                        Quickcards(
+                          icon: FluentSystemIcons.ic_fluent_drive_mode_filled,
+                          title: "Hire a Bus",
+                          desc: "Travel exclusively or in groups",
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    const Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Quickcards(
+                          icon: FluentSystemIcons.ic_fluent_location_filled,
+                          title: "Track Bus",
+                          desc: "Know exact location of a package/bus",
+                        ),
+                        Quickcards(
+                          icon: FluentSystemIcons.ic_fluent_mail_read_filled,
+                          title: "Feedback",
+                          desc: "Reviews to help us serve you better",
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      width: size.width,
+                      height: size.height / 6,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        image: DecorationImage(
+                            image: AssetImage("${Stylings.imgPath}/market.jpg"),
+                            fit: BoxFit.cover),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15.0, top: 30),
+                        child: Container(
+                          padding: EdgeInsets.only(left: 16, top: 2),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.black.withOpacity(0.1),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Our News Feed",
+                                style: Stylings.subHeader
+                                    .copyWith(color: Colors.white),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 8.0, bottom: 5),
+                                child: Text(
+                                  "We bring to you the happenings\naround the world",
+                                  style: Stylings.lilgreyText.copyWith(
+                                      color: Colors.white, fontSize: 8),
+                                ),
+                              ),
+                              Container(
+                                  decoration: BoxDecoration(
+                                      color: Stylings.brown,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 5),
+                                  child: Text(
+                                    "Read more",
+                                    style: Stylings.lilgreyText
+                                        .copyWith(color: Colors.white),
+                                  )),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           )

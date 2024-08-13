@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class Stylings {
   //Colors
-  static Color orange = Colors.red.shade900;
-  static Color brown = Colors.brown.shade900;
+  static Color orange = Colors.red.shade800;
+  static Color brown = Colors.brown.shade800;
   static Color bgColor = const Color(0xffeeedf2);
 
 //textStyles
   static TextStyle header = TextStyle(
-      fontSize: 22,
+      fontSize: 21,
       fontWeight: FontWeight.w600,
       color: Colors.white
   );

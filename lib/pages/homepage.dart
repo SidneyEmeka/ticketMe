@@ -47,7 +47,7 @@ class _HomepageState extends State<Homepage> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_home_regular), label: "home", activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled)),
-          BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_drive_mode_regular), label: "home", activeIcon: Icon(FluentSystemIcons.ic_fluent_drive_mode_filled)),
+          BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_drive_mode_regular), label: "buy ticket", activeIcon: Icon(FluentSystemIcons.ic_fluent_drive_mode_filled)),
           BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_contact_card_regular), label: "search", activeIcon: Icon(FluentSystemIcons.ic_fluent_contact_card_filled)),
           BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_ticket_regular), label: "ticket", activeIcon: Icon(FluentSystemIcons.ic_fluent_ticket_filled)),
           BottomNavigationBarItem(icon: Icon(FluentSystemIcons.ic_fluent_person_regular), label: "profile", activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled)),
