@@ -7,15 +7,26 @@ import 'package:onyeije/utils/widgs/smallcircles.dart';
 import 'layoutbuilder.dart';
 
 class Ticketpreviews extends StatelessWidget {
-  const Ticketpreviews({super.key});
+  final String fromcityCode;
+  final String fromcityName;
+  final String travelDuration;
+  final String tocityCode;
+  final String tocityName;
+  final String date;
+  final String depatureTime;
+  final int number;
+  final bool needPadding;
+  final String status;
+
+  const Ticketpreviews({super.key, required this.fromcityCode, required this.fromcityName, required this.travelDuration, required this.tocityCode, required this.tocityName, required this.date, required this.depatureTime, required this.number, this.needPadding = true, required this.status});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(right: 10.0),
+      padding: needPadding?const EdgeInsets.only(right: 10.0):const EdgeInsets.only(right: 0.0),
       child: SizedBox(
-        width: size.width * 0.76,
+        width: size.width * 0.79,
         height: 179,
         child: Column(
           children: [
@@ -23,7 +34,7 @@ class Ticketpreviews extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Stylings.brown,
+                color: status == "active"?Stylings.brown:Colors.grey,
                 borderRadius:
                     const BorderRadius.vertical(top: Radius.circular(15)),
               ),
@@ -37,7 +48,7 @@ class Ticketpreviews extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "ENU",
+                        fromcityCode,
                         style: Stylings.subHeader.copyWith(color: Colors.white),
                       ),
                       Expanded(child: Container()),
@@ -62,7 +73,7 @@ class Ticketpreviews extends StatelessWidget {
                       const Smallcircles(),
                       Expanded(child: Container()),
                       Text(
-                        "ABJ",
+                        tocityCode,
                         style: Stylings.subHeader.copyWith(color: Colors.white),
                       ),
                     ],
@@ -78,7 +89,7 @@ class Ticketpreviews extends StatelessWidget {
                       SizedBox(
                         width: 80,
                         child: Text(
-                          "Enugu",
+                          fromcityName,
                           textAlign: TextAlign.start,
                           style: Stylings.subHeader.copyWith(
                               color: Colors.white, fontWeight: FontWeight.w400),
@@ -86,7 +97,7 @@ class Ticketpreviews extends StatelessWidget {
                       ),
                       Expanded(child: Container()),
                       Text(
-                        "4H 30M",
+                        travelDuration,
                         style: Stylings.subHeader.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
@@ -96,7 +107,7 @@ class Ticketpreviews extends StatelessWidget {
                       SizedBox(
                         width: 80,
                         child: Text(
-                          "Abuja",
+                          tocityName,
                           textAlign: TextAlign.end,
                           style: Stylings.subHeader.copyWith(
                               color: Colors.white, fontWeight: FontWeight.w400),
@@ -109,7 +120,7 @@ class Ticketpreviews extends StatelessWidget {
             ),
             //divider
             Container(
-              color: Stylings.orange,
+              color:  status == "active"?Stylings.orange:Colors.grey,
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -129,7 +140,7 @@ class Ticketpreviews extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Stylings.orange,
+                color: status == "active"?Stylings.orange:Colors.grey,
                 borderRadius:
                     const BorderRadius.vertical(bottom: Radius.circular(15)),
               ),
@@ -143,7 +154,7 @@ class Ticketpreviews extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "11 NOV",
+                        date,
                         style: Stylings.subHeader
                             .copyWith(color: Colors.white, fontSize: 11),
                       ),
@@ -162,7 +173,7 @@ class Ticketpreviews extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "08:00 AM",
+                        depatureTime,
                         style: Stylings.subHeader
                             .copyWith(color: Colors.white, fontSize: 11),
                       ),
@@ -181,7 +192,7 @@ class Ticketpreviews extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "23",
+                        "$number",
                         style: Stylings.subHeader
                             .copyWith(color: Colors.white, fontSize: 11),
                       ),

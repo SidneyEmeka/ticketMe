@@ -10,7 +10,7 @@ class Stylings {
   static TextStyle header = TextStyle(
       fontSize: 22,
       fontWeight: FontWeight.w600,
-      color: orange
+      color: Colors.white
   );
   static TextStyle subHeader = TextStyle(
       fontSize: 12,
