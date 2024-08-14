@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Stylings {
   //Colors
-  static Color orange = Colors.red.shade800;
-  static Color brown = Colors.brown.shade800;
+  static Color orange = Colors.red.shade700;
+  static Color brown = Colors.brown.shade700;
   static Color bgColor = const Color(0xffeeedf2);
 
 //textStyles
@@ -19,7 +19,7 @@ class Stylings {
   );
   static TextStyle lilgreyText = TextStyle(
       fontSize: 10,
-      color: Colors.orange.shade900,
+      color: orange,
       fontWeight: FontWeight.w500
   );
 //media

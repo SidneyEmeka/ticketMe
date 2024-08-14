@@ -8,7 +8,8 @@ class Activeticketstab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
       child: ListView(
         children: [
           SingleChildScrollView(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:onyeije/screens/homescreen.dart';
 
 import '../screens/alltickets.dart';
+import '../screens/fleet.dart';
 import '../utils/styles/stylings.dart';
 
 
@@ -19,7 +20,7 @@ class _HomepageState extends State<Homepage> {
   Widget buildBody() {
     switch(selectedIndex){
       case 0: return const Homescreen();
-      case 1: return const Center(child: Text("Fleet"),);
+      case 1: return const Fleet();
       case 2: return const Center(child: Text("Transaction History"),);
       case 3: return const Alltickets();
       case 4: return const Center(child: Text("Profile"),);
@@ -36,8 +37,8 @@ class _HomepageState extends State<Homepage> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Stylings.bgColor,
         currentIndex: selectedIndex,
-        selectedItemColor: Colors.red.shade900,
-        unselectedItemColor: Colors.brown.shade900.withOpacity(0.8),
+        selectedItemColor: Stylings.brown,
+        unselectedItemColor: Stylings.brown.withOpacity(0.8),
         showUnselectedLabels: false,
         showSelectedLabels: false,
         onTap: (value){

@@ -12,25 +12,30 @@ class Quickcards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width/2.2,
-      child: Card(
-        color: Stylings.brown,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Icon(icon, color: Colors.white, size: 15,),
-              ),
-              Text(title,style: Stylings.subHeader.copyWith(color: Colors.white),),
-              SizedBox(height: 5),
-              Text(desc, style: Stylings.lilgreyText.copyWith(color: Colors.white, fontWeight: FontWeight.w400),),
+    return GestureDetector(
+      onTap: (){
+        Navigator.pushNamed(context, "buy-ticket");
+      },
+      child: Container(
+        width: size.width/2.2,
+        child: Card(
+          color: Stylings.brown,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Icon(icon, color: Colors.white, size: 15,),
+                ),
+                Text(title,style: Stylings.subHeader.copyWith(color: Colors.white),),
+                SizedBox(height: 5),
+                Text(desc, style: Stylings.lilgreyText.copyWith(color: Colors.white, fontWeight: FontWeight.w400),),
 
-            ],
+              ],
+            ),
           ),
         ),
       ),

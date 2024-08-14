@@ -86,6 +86,8 @@ class _HomescreenState extends State<Homescreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         DropdownButton(
+                          borderRadius: BorderRadius.circular(10),
+                            menuMaxHeight: size.height * 0.2,
                             value: currentLocation,
                             iconEnabledColor: Colors.white,
                             iconSize: 15,
@@ -130,7 +132,7 @@ class _HomescreenState extends State<Homescreen> {
                       title: 'Tickets',
                       route: "tickets",
                     ),
-                    //SizedBox(height: 5),iopnjn
+                    //SizedBox(height: 5),
                     SizedBox(
                       width: size.width,
                       child: SingleChildScrollView(

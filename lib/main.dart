@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onyeije/pages/homepage.dart';
 import 'package:onyeije/screens/alltickets.dart';
+import 'package:onyeije/screens/buyticket.dart';
 import 'package:onyeije/screens/fleet.dart';
 import 'package:onyeije/utils/styles/stylings.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
        "/":(context)=> const Homepage(),
        "tickets":(context)=> const Alltickets(),
        "fleet":(context)=> const Fleet(),
+       "buy-ticket":(context)=> const Buyticket(),
       },
     );
   }

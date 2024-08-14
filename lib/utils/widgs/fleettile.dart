@@ -2,13 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:onyeije/utils/styles/stylings.dart';
 
 class Fleettile extends StatelessWidget {
-  const Fleettile({super.key});
+  final String busTitle;
+  final String busType;
+  final int busSeats;
+  final int appPrice;
+  final int terminalPrice;
+  final String takeOffTime;
+
+  const Fleettile(
+      {super.key,
+      required this.busTitle,
+      required this.busType,
+      required this.busSeats,
+      required this.appPrice,
+      required this.terminalPrice,
+      required this.takeOffTime});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 12),
       width: size.width,
       //height: size.height/4.8,
       child: Card(
@@ -26,15 +39,17 @@ class Fleettile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Enugu - Onitsha",
+                      busTitle,
                       style: Stylings.subHeader,
                     ),
                     Text(
-                      "Onye Ije Bus",
+                      busType,
                       style: Stylings.subHeader.copyWith(color: Stylings.brown),
                     ),
                     Text(
-                      "11 seats available",
+                      busSeats == 1
+                          ? "$busSeats seat available"
+                          : "$busSeats seats available",
                       style: Stylings.lilgreyText,
                     ),
                     Row(
@@ -42,11 +57,11 @@ class Fleettile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "#7200",
+                          "#$appPrice",
                           style: Stylings.lilgreyText
                               .copyWith(color: Stylings.brown),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
@@ -61,7 +76,7 @@ class Fleettile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "#7500",
+                          "#$terminalPrice",
                           style: Stylings.lilgreyText
                               .copyWith(color: Stylings.brown),
                         ),
@@ -76,7 +91,7 @@ class Fleettile extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      "Departure Time: 6:00 AM",
+                      "Departure Time: $takeOffTime",
                       style:
                           Stylings.lilgreyText.copyWith(color: Stylings.brown),
                     ),
