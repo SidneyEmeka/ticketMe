@@ -30,7 +30,7 @@ class _HomescreenState extends State<Homescreen> {
             children: [
               //circular black background
               Container(
-                height: size.height / 3,
+                height: size.height / 3.1,
                 decoration: const BoxDecoration(
                     color: Colors.black,
                     borderRadius:
@@ -82,7 +82,7 @@ class _HomescreenState extends State<Homescreen> {
                         ),
                       ],
                     ),
-                    //dropdown and buy ticket button
+                    //wallet
                     const SizedBox(height: 10,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,7 +102,7 @@ class _HomescreenState extends State<Homescreen> {
                                   width: 20,
                                   child: Image.asset("${Stylings.imgPath}/naira.png",color: Colors.white,),
                                 ),
-                                Text(viewBalance?"${Ekene.balance}":"********", style: Stylings.header,),
+                                Text(viewBalance?"${Ekene.balance}":"********", style: Stylings.header.copyWith(fontSize: 20),),
                               ],
                             ),
                           ],
