@@ -17,6 +17,7 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  bool viewBalance = false;
   String currentLocation = "Enugu";
 
   @override
@@ -37,7 +38,7 @@ class _HomescreenState extends State<Homescreen> {
               ),
               //title-tickets
               Container(
-                padding: const EdgeInsets.only(top: 50, left: 10, right: 10),
+                padding: const EdgeInsets.only(top: 60, left: 10, right: 10),
                 width: size.width,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -66,14 +67,14 @@ class _HomescreenState extends State<Homescreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              width: 50,
+                              width: 40,
                               height: 40,
                               decoration: BoxDecoration(
                                   shape: BoxShape.rectangle,
                                   borderRadius: BorderRadius.circular(100),
                                   image: DecorationImage(
                                       image: AssetImage(
-                                          ("${Stylings.imgPath}/market.jpg")),
+                                          ("${Stylings.imgPath}/pfp.jpeg")),
                                       fit: BoxFit.cover)),
                               //child: Image.asset("assets/images/market.jpg", fit: BoxFit.cover,),
                             ),
@@ -81,49 +82,58 @@ class _HomescreenState extends State<Homescreen> {
                         ),
                       ],
                     ),
+                    //dropdown and buy ticket button
+                    const SizedBox(height: 10,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        DropdownButton(
-                          borderRadius: BorderRadius.circular(10),
-                            menuMaxHeight: size.height * 0.2,
-                            value: currentLocation,
-                            iconEnabledColor: Colors.white,
-                            iconSize: 15,
-                            dropdownColor: Stylings.brown,
-                            underline: const SizedBox(),
-                            items: [
-                              ...Ekene.dropDownStates.map((aState) {
-                                return DropdownMenuItem(
-                                    value: aState,
-                                    child: Text(
-                                      aState,
-                                      style: Stylings.subHeader
-                                          .copyWith(color: Colors.white),
-                                    ));
-                              })
-                            ],
-                            onChanged: (value) {
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Wallet Balance(₦)", style: Stylings.subHeader.copyWith(color: Colors.white),),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 20,
+                                  width: 20,
+                                  child: Image.asset("${Stylings.imgPath}/naira.png",color: Colors.white,),
+                                ),
+                                Text(viewBalance?"${Ekene.balance}":"********", style: Stylings.header,),
+                              ],
+                            ),
+                          ],
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                            if(!viewBalance) {
                               setState(() {
-                                currentLocation = value!;
+                              viewBalance = true;
+                            });
+                            }
+                            else if(viewBalance){
+                              setState(() {
+                                viewBalance = false;
                               });
-                            }),
-                        Container(
-                            decoration: BoxDecoration(
-                                color: Stylings.brown,
-                                borderRadius: BorderRadius.circular(10)),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            child: Text(
-                              "Buy Ticket",
-                              style: Stylings.lilgreyText
-                                  .copyWith(color: Colors.white),
-                            )),
+                            }
+
+                          },
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  color: Stylings.brown,
+                                  borderRadius: BorderRadius.circular(10)),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 6),
+                              child: viewBalance?const Icon(FluentSystemIcons.ic_fluent_eye_show_filled, size: 12, color: Colors.white,):const Icon(FluentSystemIcons.ic_fluent_eye_hide_filled, size: 12, color: Colors.white,)
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(
-                      height: 25,
+                      height: 35,
                     ),
                     //current state
 
@@ -170,8 +180,9 @@ class _HomescreenState extends State<Homescreen> {
               ),
             ],
           ),
+          //quick cards
           SizedBox(
-            height: size.height / 2.33,
+            height: size.height / 2.14,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Container(
@@ -188,13 +199,13 @@ class _HomescreenState extends State<Homescreen> {
                           desc: "Reserve seat(s) for your next trip",
                         ),
                         Quickcards(
-                          icon: FluentSystemIcons.ic_fluent_drive_mode_filled,
+                          icon: Icons.car_rental_outlined,
                           title: "Hire a Bus",
                           desc: "Travel exclusively or in groups",
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     const Row(
@@ -207,15 +218,35 @@ class _HomescreenState extends State<Homescreen> {
                           desc: "Know exact location of a package/bus",
                         ),
                         Quickcards(
-                          icon: FluentSystemIcons.ic_fluent_mail_read_filled,
-                          title: "Feedback",
-                          desc: "Reviews to help us serve you better",
+                          icon: Icons.explore_rounded,
+                          title: "Logistics",
+                          desc: "Transport your goods to any part of the country",
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
+                    const Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Quickcards(
+                          icon: Icons.co_present_rounded,
+                          title: "Become an Agent",
+                          desc: "Become a driver and an esteemed member of the team",
+                        ),
+                        Quickcards(
+                          icon: FluentSystemIcons.ic_fluent_mail_read_filled,
+                          title: "Feedback",
+                          desc: "Tell us how you feel to help us serve you better",
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    //blog
                     Container(
                       width: size.width,
                       height: size.height / 6,
@@ -228,7 +259,7 @@ class _HomescreenState extends State<Homescreen> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 15.0, top: 30),
                         child: Container(
-                          padding: EdgeInsets.only(left: 16, top: 2),
+                          padding: const EdgeInsets.only(left: 16, top: 2),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.black.withOpacity(0.1),

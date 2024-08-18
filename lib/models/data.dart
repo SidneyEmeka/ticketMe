@@ -17,6 +17,7 @@ class aBus {
 }
 //A users data
 class Ekene {
+  static double balance = 17500.35;
   static List<String> dropDownStates = ["Enugu", "Lagos", "Onitsha", "Aba", "Abuja", "Owerri"];
   //Tickets data[json]
   static List<Map<String, dynamic>> tickets = [
