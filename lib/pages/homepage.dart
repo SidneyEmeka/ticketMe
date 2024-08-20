@@ -4,6 +4,7 @@ import 'package:onyeije/screens/homescreen.dart';
 
 import '../screens/alltickets.dart';
 import '../screens/fleet.dart';
+import '../screens/thistory.dart';
 import '../utils/styles/stylings.dart';
 
 
@@ -21,7 +22,7 @@ class _HomepageState extends State<Homepage> {
     switch(selectedIndex){
       case 0: return const Homescreen();
       case 1: return const Fleet();
-      case 2: return const Center(child: Text("Transaction History"),);
+      case 2: return const Thistory();
       case 3: return const Alltickets();
       case 4: return const Center(child: Text("Profile"),);
       default: return const Center();

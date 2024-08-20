@@ -18,6 +18,27 @@ class _BuyticketState extends State<Buyticket> {
   String fromLocation = "Enugu";
   String toLocation = "Abuja";
 
+  DateTime takeOffDate = DateTime.now();
+  void _pickTakeOffDate() {
+    showDatePicker(context: context,initialDate: DateTime.now(), firstDate: DateTime.now(), lastDate: DateTime(2026)).then((onValue){
+      setState(() {
+        takeOffDate = onValue!;
+      });
+    });
+  }
+  DateTime returnDate = DateTime.now();
+  void _picReturnDate() {
+    showDatePicker(context: context,initialDate: DateTime.now(), firstDate: DateTime.now(), lastDate: DateTime(2026)).then((onValue){
+      setState(() {
+        returnDate = onValue!;
+      });
+    });
+  }
+
+  int childTravellers = 0;
+  int adultTravellers = 1;
+
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -87,7 +108,7 @@ class _BuyticketState extends State<Buyticket> {
                 ),
               ],
             ),
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,8 +131,8 @@ class _BuyticketState extends State<Buyticket> {
                                 .copyWith(color: Stylings.brown),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 8),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            margin: const EdgeInsets.only(top: 8),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(color: Stylings.brown)),
@@ -156,8 +177,8 @@ class _BuyticketState extends State<Buyticket> {
                                 .copyWith(color: Stylings.brown),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 8),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            margin: const EdgeInsets.only(top: 8),
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(color: Stylings.brown)),
@@ -202,35 +223,17 @@ class _BuyticketState extends State<Buyticket> {
                             style: Stylings.lilgreyText
                                 .copyWith(color: Stylings.brown),
                           ),
-                          Container(
-                            margin: EdgeInsets.only(top: 8),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Stylings.brown)),
-                            child: DropdownButton(
-                                alignment: Alignment.center,
-                                isExpanded: true,
-                                borderRadius: BorderRadius.circular(10),
-                                menuMaxHeight: size.height * 0.2,
-                                value: toLocation,
-                                iconEnabledColor: Stylings.brown,
-                                iconSize: 15,
-                                dropdownColor: Stylings.bgColor,
-                                underline: const SizedBox(),
-                                items: [
-                                  ...Ekene.dropDownStates.map((aState) {
-                                    return DropdownMenuItem(
-                                        value: aState,
-                                        child: Text(aState,
-                                            style: Stylings.subHeader));
-                                  })
-                                ],
-                                onChanged: (value) {
-                                  setState(() {
-                                    toLocation = value!;
-                                  });
-                                }),
+                          GestureDetector(
+                            onTap: _pickTakeOffDate,
+                            child: Container(
+                              width: size.width,
+                              margin: const EdgeInsets.only(top: 8),
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: Stylings.brown)),
+                              child: Text("${takeOffDate.day} / ${takeOffDate.month} / ${takeOffDate.year}", style: Stylings.subHeader,)
+                            ),
                           ),
                         ],
                       ):Row(
@@ -250,35 +253,17 @@ class _BuyticketState extends State<Buyticket> {
                                     style: Stylings.lilgreyText
                                         .copyWith(color: Stylings.brown),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 8),
-                                    padding: EdgeInsets.symmetric(horizontal: 10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(color: Stylings.brown)),
-                                    child: DropdownButton(
-                                        alignment: Alignment.center,
-                                        isExpanded: true,
-                                        borderRadius: BorderRadius.circular(10),
-                                        menuMaxHeight: size.height * 0.2,
-                                        value: fromLocation,
-                                        iconEnabledColor: Stylings.brown,
-                                        iconSize: 15,
-                                        dropdownColor: Stylings.bgColor,
-                                        underline: const SizedBox(),
-                                        items: [
-                                          ...Ekene.dropDownStates.map((aState) {
-                                            return DropdownMenuItem(
-                                                value: aState,
-                                                child: Text(aState,
-                                                    style: Stylings.subHeader));
-                                          })
-                                        ],
-                                        onChanged: (value) {
-                                          setState(() {
-                                            fromLocation = value!;
-                                          });
-                                        }),
+                                  GestureDetector(
+                                    onTap: _pickTakeOffDate,
+                                    child: Container(
+                                        width: size.width,
+                                        margin: const EdgeInsets.only(top: 8),
+                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            border: Border.all(color: Stylings.brown)),
+                                        child: Text("${takeOffDate.day} / ${takeOffDate.month} / ${takeOffDate.year}", style: Stylings.subHeader,)
+                                    ),
                                   ),
                                 ],
                               ),
@@ -297,35 +282,17 @@ class _BuyticketState extends State<Buyticket> {
                                     style: Stylings.lilgreyText
                                         .copyWith(color: Stylings.brown),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 8),
-                                    padding: EdgeInsets.symmetric(horizontal: 10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(color: Stylings.brown)),
-                                    child: DropdownButton(
-                                        alignment: Alignment.center,
-                                        isExpanded: true,
-                                        borderRadius: BorderRadius.circular(10),
-                                        menuMaxHeight: size.height * 0.2,
-                                        value: fromLocation,
-                                        iconEnabledColor: Stylings.brown,
-                                        iconSize: 15,
-                                        dropdownColor: Stylings.bgColor,
-                                        underline: const SizedBox(),
-                                        items: [
-                                          ...Ekene.dropDownStates.map((aState) {
-                                            return DropdownMenuItem(
-                                                value: aState,
-                                                child: Text(aState,
-                                                    style: Stylings.subHeader));
-                                          })
-                                        ],
-                                        onChanged: (value) {
-                                          setState(() {
-                                            fromLocation = value!;
-                                          });
-                                        }),
+                                  GestureDetector(
+                                    onTap: _picReturnDate,
+                                    child: Container(
+                                        width: size.width,
+                                        margin: const EdgeInsets.only(top: 8),
+                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(20),
+                                            border: Border.all(color: Stylings.brown)),
+                                        child: Text("${returnDate.day} / ${returnDate.month} / ${returnDate.year}", style: Stylings.subHeader,)
+                                    ),
                                   ),
                                 ],
                               ),
@@ -347,40 +314,74 @@ class _BuyticketState extends State<Buyticket> {
                             style: Stylings.lilgreyText
                                 .copyWith(color: Stylings.brown),
                           ),
-                          Container(
-                            margin: EdgeInsets.only(top: 8),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                border: Border.all(color: Stylings.brown)),
-                            child: DropdownButton(
-                                alignment: Alignment.center,
-                                isExpanded: true,
-                                borderRadius: BorderRadius.circular(10),
-                                menuMaxHeight: size.height * 0.2,
-                                value: fromLocation,
-                                iconEnabledColor: Stylings.brown,
-                                iconSize: 15,
-                                dropdownColor: Stylings.bgColor,
-                                underline: const SizedBox(),
-                                items: [
-                                  ...Ekene.dropDownStates.map((aState) {
-                                    return DropdownMenuItem(
-                                        value: aState,
-                                        child: Text(aState,
-                                            style: Stylings.subHeader));
-                                  })
-                                ],
-                                onChanged: (value) {
-                                  setState(() {
-                                    fromLocation = value!;
-                                  });
-                                }),
+                          GestureDetector(
+                            onTap: (){
+                              showDialog(context: context, builder: (_){
+                                return AlertDialog(
+                                  title: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: [
+                                      Text("Travelers", style: Stylings.header.copyWith(color: Stylings.brown),),
+                                      Divider(color: Stylings.brown,)
+                                    ],
+                                  ),
+                                  content: Container(
+                                    width: size.width,
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text("ADULTS", style: Stylings.subHeader,),
+                                        Text("10 years and above", style: Stylings.lilgreyText,),
+                                        Text("$adultTravellers", style: Stylings.header.copyWith(color: Stylings.brown),),
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(vertical: 5),
+
+                                          width: size.width*0.3,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                              color: Stylings.brown,
+                                            borderRadius: BorderRadius.circular(10)
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: [
+                                              Expanded(child: IconButton(onPressed: (){
+                                                setState(() {
+                                                  adultTravellers++;
+                                                });
+                                              }, icon: const Icon(Icons.add, color: Colors.white,size: 10,))),
+                                              Expanded(child: IconButton(onPressed: (){
+                                                setState(() {
+                                                  adultTravellers--;
+                                                });
+                                              }, icon: const Icon(Icons.remove, color: Colors.white,size: 10,)))
+                                            ],
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              });
+                            },
+                            child: Container(
+                                width: size.width,
+                                margin: const EdgeInsets.only(top: 8),
+                                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(color: Stylings.brown)),
+                                child: Text("${returnDate.day} / ${returnDate.month} / ${returnDate.year}", style: Stylings.subHeader,)
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(height: 30,),
+                    const SizedBox(height: 30,),
                     //submit
                     ElevatedButton(onPressed: (){},
                         style: ElevatedButton.styleFrom(

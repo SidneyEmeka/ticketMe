@@ -9,16 +9,64 @@ class aBus {
 
   aBus(
       {required this.title,
-        required this.seats,
-        required this.type,
+      required this.seats,
+      required this.type,
       required this.app,
       required this.terminal,
       required this.takeOff});
 }
+
 //A users data
 class Ekene {
   static double balance = 17500.35;
-  static List<String> dropDownStates = ["Enugu", "Lagos", "Onitsha", "Aba", "Abuja", "Owerri"];
+  static List<String> months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  static List<String> dropDownStates = [
+    "Enugu",
+    "Lagos",
+    "Onitsha",
+    "Aba",
+    "Abuja",
+    "Owerri"
+  ];
+
+  static List<Map<String, dynamic>> transactions = [
+  {
+    "Date": "Mon Nov 19, 2024 10:46 AM",
+    "Id": "7873GRGF7WGAVDW78",
+    "Type" : "FUND WALLET",
+    "Price": 17200
+  },{
+    "Date": "Mon Nov 14, 2024 2:46 PM",
+    "Id": "364386363TGAVDW78",
+    "Type" : "Ticket",
+      "Price": 4200
+  },{
+    "Date": "Wed Nov 9, 2024 12:46 PM",
+    "Id": "873GRTRF73FRHR7HRB",
+    "Type" : "HIRE A BUS",
+      "Price": 27200
+  },
+    {
+      "Date": "Mon Nov 1, 2024 10:46 AM",
+      "Id": "7873GRGF7WGAVDW78",
+      "Type" : "FUND WALLET",
+      "Price": 3700
+    },
+  ];
+
   //Tickets data[json]
   static List<Map<String, dynamic>> tickets = [
     {
@@ -116,19 +164,22 @@ class Ekene {
         takeOff: "10:00 AM"),
     aBus(
         title: "Lagos - Abuja",
-        type: "AC bus",seats: 14,
+        type: "AC bus",
+        seats: 14,
         app: 7200,
         terminal: 7500,
         takeOff: "6:30 AM"),
     aBus(
         title: "Lagos - Aba",
-        type: "AC bus",seats: 19,
+        type: "AC bus",
+        seats: 19,
         app: 7200,
         terminal: 7500,
         takeOff: "6:10 PM"),
     aBus(
         title: "Lagos - Owerri",
-        type: "AC bus",seats: 2,
+        type: "AC bus",
+        seats: 2,
         app: 7200,
         terminal: 7500,
         takeOff: "5:00 PM")
@@ -137,31 +188,36 @@ class Ekene {
     //route,title,app,terminal,takeoff
     aBus(
         title: "Onitsha - Abuja",
-        type: "AC bus",seats: 12,
+        type: "AC bus",
+        seats: 12,
         app: 7200,
         terminal: 7500,
         takeOff: "6:00 AM"),
     aBus(
         title: "Onitsha - Lagos",
-        type: "AC bus",seats: 11,
+        type: "AC bus",
+        seats: 11,
         app: 7200,
         terminal: 7500,
         takeOff: "10:00 AM"),
     aBus(
         title: "Onitsha - Enugu",
-        type: "AC bus",seats: 20,
+        type: "AC bus",
+        seats: 20,
         app: 7200,
         terminal: 7500,
         takeOff: "6:30 AM"),
     aBus(
         title: "Onitsha - Aba",
-        type: "AC bus",seats: 17,
+        type: "AC bus",
+        seats: 17,
         app: 7200,
         terminal: 7500,
         takeOff: "11:30 AM"),
     aBus(
         title: "Onitsha - Owerri",
-        type: "AC bus",seats: 14,
+        type: "AC bus",
+        seats: 14,
         app: 7200,
         terminal: 7500,
         takeOff: "5:00 PM")
@@ -170,31 +226,36 @@ class Ekene {
     //route,title,app,terminal,takeoff
     aBus(
         title: "Aba - Onitsha",
-        type: "AC bus",seats: 13,
+        type: "AC bus",
+        seats: 13,
         app: 7200,
         terminal: 7500,
         takeOff: "6:00 AM"),
     aBus(
         title: "Aba - Lagos",
-        type: "AC bus",seats: 6,
+        type: "AC bus",
+        seats: 6,
         app: 7200,
         terminal: 7500,
         takeOff: "10:00 AM"),
     aBus(
         title: "Aba - Enugu",
-        type: "AC bus",seats: 15,
+        type: "AC bus",
+        seats: 15,
         app: 7200,
         terminal: 7500,
         takeOff: "6:30 AM"),
     aBus(
         title: "Aba - Abuja",
-        type: "AC bus",seats: 8,
+        type: "AC bus",
+        seats: 8,
         app: 7200,
         terminal: 7500,
         takeOff: "11:30 AM"),
     aBus(
         title: "Aba - Owerri",
-        type: "AC bus",seats: 20,
+        type: "AC bus",
+        seats: 20,
         app: 7200,
         terminal: 7500,
         takeOff: "5:00 PM")
@@ -203,31 +264,36 @@ class Ekene {
     //route,title,app,terminal,takeoff
     aBus(
         title: "Abuja - Onitsha",
-        type: "AC bus",seats: 20,
+        type: "AC bus",
+        seats: 20,
         app: 7200,
         terminal: 7500,
         takeOff: "6:00 AM"),
     aBus(
         title: "Abuja - Lagos",
-        type: "AC bus",seats: 13,
+        type: "AC bus",
+        seats: 13,
         app: 7200,
         terminal: 7500,
         takeOff: "10:00 AM"),
     aBus(
         title: "Abuja - Enugu",
-        type: "AC bus",seats: 12,
+        type: "AC bus",
+        seats: 12,
         app: 7200,
         terminal: 7500,
         takeOff: "6:30 AM"),
     aBus(
         title: "Abuja - Aba",
-        type: "AC bus",seats: 8,
+        type: "AC bus",
+        seats: 8,
         app: 7200,
         terminal: 7500,
         takeOff: "11:30 AM"),
     aBus(
         title: "Abuja - Owerri",
-        type: "AC bus",seats: 11,
+        type: "AC bus",
+        seats: 11,
         app: 7200,
         terminal: 7500,
         takeOff: "5:00 PM")
@@ -236,31 +302,36 @@ class Ekene {
     //route,title,app,terminal,takeoff
     aBus(
         title: "Owerri - Onitsha",
-        type: "AC bus",seats: 1,
+        type: "AC bus",
+        seats: 1,
         app: 7200,
         terminal: 7500,
         takeOff: "6:00 AM"),
     aBus(
         title: "Owerri - Lagos",
-        type: "AC bus",seats: 20,
+        type: "AC bus",
+        seats: 20,
         app: 7200,
         terminal: 7500,
         takeOff: "10:00 AM"),
     aBus(
         title: "Owerri - Enugu",
-        type: "AC bus",seats: 14,
+        type: "AC bus",
+        seats: 14,
         app: 7200,
         terminal: 7500,
         takeOff: "6:30 AM"),
     aBus(
         title: "Owerri - Aba",
-        type: "AC bus",seats: 4,
+        type: "AC bus",
+        seats: 4,
         app: 7200,
         terminal: 7500,
         takeOff: "11:30 AM"),
     aBus(
         title: "Owerri - Abuja",
-        type: "AC bus",seats: 18,
+        type: "AC bus",
+        seats: 18,
         app: 7200,
         terminal: 7500,
         takeOff: "5:00 PM")
