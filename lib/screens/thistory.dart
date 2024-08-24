@@ -22,7 +22,7 @@ class _ThistoryState extends State<Thistory> {
       appBar: AppBar(
         backgroundColor: Stylings.brown,
         leading: IconButton(
-          icon: const Icon(FluentSystemIcons.ic_fluent_arrow_left_filled),
+          icon: const Icon(FluentSystemIcons.ic_fluent_ios_arrow_left_filled),
           iconSize: 15,
           color: Colors.white,
           onPressed: () => Navigator.pushNamed(context, "/"),
@@ -78,7 +78,7 @@ class _ThistoryState extends State<Thistory> {
                     });
                   }),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             ...Ekene.transactions.map((aTrxn){
               final trxnDate = aTrxn["Date"];
               final trxnAmount = aTrxn["Price"];

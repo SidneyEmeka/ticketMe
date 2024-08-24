@@ -113,17 +113,22 @@ class Fleettile extends StatelessWidget {
                               image: AssetImage("${Stylings.imgPath}/bus.jpg"),
                               fit: BoxFit.cover)),
                     ),
-                    Container(
-                        decoration: BoxDecoration(
-                            color: Stylings.brown,
-                            borderRadius: BorderRadius.circular(10)),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                        child: Text(
-                          "Buy Ticket",
-                          style: Stylings.lilgreyText
-                              .copyWith(color: Colors.white),
-                        ))
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.pushNamed(context, "buy-ticket");
+                      },
+                      child: Container(
+                          decoration: BoxDecoration(
+                              color: Stylings.brown,
+                              borderRadius: BorderRadius.circular(10)),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                          child: Text(
+                            "Buy Ticket",
+                            style: Stylings.lilgreyText
+                                .copyWith(color: Colors.white),
+                          )),
+                    )
                   ],
                 ),
               ),

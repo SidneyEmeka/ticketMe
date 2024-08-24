@@ -14,7 +14,7 @@ class aTab extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
           color: isLeft?Stylings.brown.withOpacity(0.8):Stylings.brown.withOpacity(0.5),
-          borderRadius: isLeft?BorderRadius.horizontal(left: Radius.circular(10)):BorderRadius.horizontal(right: Radius.circular(10))
+          borderRadius: isLeft?const BorderRadius.horizontal(left: Radius.circular(10)):BorderRadius.horizontal(right: Radius.circular(10))
       ),
       //padding: EdgeInsets.symmetric(vertical: 5),
       width: size.width*0.35,

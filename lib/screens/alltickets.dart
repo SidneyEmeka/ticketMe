@@ -31,7 +31,7 @@ class Alltickets extends StatelessWidget {
           ),
           backgroundColor: Stylings.brown,
           leading: IconButton(
-            icon: const Icon(FluentSystemIcons.ic_fluent_arrow_left_filled),
+            icon: const Icon(FluentSystemIcons.ic_fluent_ios_arrow_left_filled),
             iconSize: 15,
             color: Colors.white,
             onPressed: ()=>Navigator.pushNamed(context, "/"),

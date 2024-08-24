@@ -68,16 +68,14 @@ class _HomescreenState extends State<Homescreen> {
                           children: [
                             Container(
                               width: 40,
-                              height: 40,
+                              height: 30,
                               decoration: BoxDecoration(
                                   shape: BoxShape.rectangle,
                                   borderRadius: BorderRadius.circular(100),
                                   image: DecorationImage(
-                                      image: AssetImage(
-                                          ("${Stylings.imgPath}/pfp.jpeg")),
+                                      image: AssetImage(("${Stylings.imgPath}/market.jpg")),
                                       fit: BoxFit.cover)),
-                              //child: Image.asset("assets/images/market.jpg", fit: BoxFit.cover,),
-                            ),
+                            )
                           ],
                         ),
                       ],
