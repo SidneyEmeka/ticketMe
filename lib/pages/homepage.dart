@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:onyeije/pages/loginpage.dart';
 import 'package:onyeije/screens/homescreen.dart';
 
 import '../screens/alltickets.dart';
@@ -34,7 +36,17 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: buildBody(),
+      body: StreamBuilder<User?>(
+         stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot){
+           if(snapshot.hasData) {
+             return buildBody();
+           }
+           else {
+             return LoginPage();
+           }
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         backgroundColor: Stylings.bgColor,

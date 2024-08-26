@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:onyeije/pages/homepage.dart';
+import 'package:onyeije/pages/loginpage.dart';
+import 'package:onyeije/pages/signupmethodpage.dart';
 import 'package:onyeije/provider/provider.dart';
 import 'package:onyeije/screens/alltickets.dart';
 import 'package:onyeije/screens/buyticket.dart';
+import 'package:onyeije/screens/emailsignup.dart';
 import 'package:onyeije/screens/fleet.dart';
+import 'package:onyeije/screens/profile.dart';
 import 'package:onyeije/utils/styles/stylings.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -27,10 +34,14 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes:  {
-         "/":(context)=> const Homepage(),
+          "/":(context)=> const Homepage(),
+         "in-method":(context)=> const InMethod(),
+         "email-signup":(context)=> const Emailsignup(),
+          "login":(context)=> const LoginPage(),
          "tickets":(context)=> const Alltickets(),
          "fleet":(context)=> const Fleet(),
          "buy-ticket":(context)=> const Buyticket(),
+         "profile":(context)=> const Profile(),
         },
       ),
     );

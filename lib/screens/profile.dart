@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:onyeije/utils/styles/stylings.dart';
@@ -17,17 +18,22 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Stylings.brown,
-          leading: Container(
-            padding: const EdgeInsets.only(left: 5),
-            margin: const EdgeInsets.all(13),
-            width: 30,
-            height: 40,
-            decoration:
-                const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-            child: Icon(
-              Icons.arrow_back_ios,
-              color: Stylings.brown,
-              size: 17,
+          leading: GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, "/");
+            },
+            child: Container(
+              padding: const EdgeInsets.only(left: 5),
+              margin: const EdgeInsets.all(13),
+              width: 30,
+              height: 40,
+              decoration:
+                  const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Stylings.brown,
+                size: 17,
+              ),
             ),
           ),
           title: Text(
@@ -38,16 +44,8 @@ class _ProfileState extends State<Profile> {
           actions: [
             GestureDetector(
               onTap: (){
-                if(edit==false) {
-                 setState(() {
-                   edit = true;
-                 });
-                }
-                else if(edit==true){
-                  setState(() {
-                    edit = false;
-                  });
-                }
+                FirebaseAuth.instance.signOut();
+                Navigator.pushNamed(context, "login");
               },
               child: Container(
                 margin: const EdgeInsets.only(right: 10),
@@ -56,7 +54,7 @@ class _ProfileState extends State<Profile> {
                 decoration:
                     const BoxDecoration(shape: BoxShape.circle, color: Colors.white),
                 child: Icon(
-                  Icons.edit,
+                  Icons.logout,
                   color: Stylings.brown,
                   size: 18,
                 ),

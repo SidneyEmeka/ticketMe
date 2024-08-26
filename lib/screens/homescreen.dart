@@ -1,7 +1,9 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:onyeije/provider/provider.dart';
 import 'package:onyeije/utils/styles/stylings.dart';
+import 'package:provider/provider.dart';
 
 import '../models/data.dart';
 import '../utils/widgs/fleettile.dart';
@@ -22,6 +24,7 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
+    var user = Provider.of<MyProvider>(context, listen: false).user;
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
@@ -55,7 +58,7 @@ class _HomescreenState extends State<Homescreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("ONYE IJE", style: Stylings.header),
-                            Text("Good morning Ekene",
+                            Text("Good morning ${user.email}",
                                 style: Stylings.subHeader.copyWith(
                                     fontWeight: FontWeight.w600,
                                     color: Colors.white)),
@@ -66,15 +69,20 @@ class _HomescreenState extends State<Homescreen> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Container(
-                              width: 40,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  borderRadius: BorderRadius.circular(100),
-                                  image: DecorationImage(
-                                      image: AssetImage(("${Stylings.imgPath}/market.jpg")),
-                                      fit: BoxFit.cover)),
+                            GestureDetector(
+                              onTap: (){
+                                Navigator.pushNamed(context, "profile");
+                              },
+                              child: Container(
+                                width: 40,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    borderRadius: BorderRadius.circular(100),
+                                    image: DecorationImage(
+                                        image: AssetImage(("${Stylings.imgPath}/market.jpg")),
+                                        fit: BoxFit.cover)),
+                              ),
                             )
                           ],
                         ),
