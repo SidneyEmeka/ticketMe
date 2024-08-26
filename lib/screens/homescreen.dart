@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,6 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
-    var user = Provider.of<MyProvider>(context, listen: false).user;
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Column(
@@ -58,7 +58,7 @@ class _HomescreenState extends State<Homescreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("ONYE IJE", style: Stylings.header),
-                            Text("Good morning ${user.email}",
+                            Text("Good morning ${FirebaseAuth.instance.currentUser!.email}",
                                 style: Stylings.subHeader.copyWith(
                                     fontWeight: FontWeight.w600,
                                     color: Colors.white)),
@@ -115,17 +115,9 @@ class _HomescreenState extends State<Homescreen> {
                         ),
                         GestureDetector(
                           onTap: (){
-                            if(!viewBalance) {
-                              setState(() {
-                              viewBalance = true;
+                            setState(() {
+                              viewBalance==false?viewBalance=true:viewBalance=false;
                             });
-                            }
-                            else if(viewBalance){
-                              setState(() {
-                                viewBalance = false;
-                              });
-                            }
-
                           },
                           child: Container(
                               decoration: BoxDecoration(

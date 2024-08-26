@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:onyeije/provider/provider.dart';
 import 'package:onyeije/utils/styles/stylings.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -15,6 +17,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final provider = Provider.of<MyProvider>(context,listen: false);
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Stylings.brown,
@@ -44,8 +47,7 @@ class _ProfileState extends State<Profile> {
           actions: [
             GestureDetector(
               onTap: (){
-                FirebaseAuth.instance.signOut();
-                Navigator.pushNamed(context, "login");
+                provider.signOut();
               },
               child: Container(
                 margin: const EdgeInsets.only(right: 10),

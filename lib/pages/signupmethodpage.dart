@@ -32,24 +32,24 @@ class InMethod extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Already have an account ?",
+                      "Don't have an account ?",
                       style: Stylings.subHeader.copyWith(color: Stylings.brown),
                     ),
-                    const SizedBox(width: 10,),
+                    const SizedBox(width: 5,),
                     GestureDetector(
                       onTap: (){
-                        Navigator.pushNamed(context, "login");
+                        Navigator.pushNamed(context, "email-signup");
                       },
                       child: Text(
-                        "Log in",
-                        style: Stylings.lilgreyText.copyWith(color: Colors.brown,decoration: TextDecoration.underline, decorationStyle: TextDecorationStyle.solid, decorationColor: Stylings.orange,),
+                        "Register",
+                        style: Stylings.lilgreyText.copyWith(color: Colors.brown),
                       ),
                     ),
                   ],
                 ),
                 GestureDetector(
                   onTap: (){
-                    Navigator.pushNamed(context, "email-signup");
+                    Navigator.pushNamed(context, "login");
                   },
                   child: Container(
                     margin: const EdgeInsets.only(bottom: 10,top: 15),
@@ -60,7 +60,7 @@ class InMethod extends StatelessWidget {
                         color: Stylings.brown,
                         borderRadius: BorderRadius.circular(15)
                     ),
-                    child: Text("Sign up with email", style: Stylings.subHeader.copyWith(color: Stylings.bgColor),),
+                    child: Text("Sign in with email", style: Stylings.subHeader.copyWith(color: Stylings.bgColor),),
                   ),
                 ),
                 Container(
@@ -77,8 +77,8 @@ class InMethod extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(Icons.g_mobiledata_outlined,color: Colors.blue,),
-                      Text("Sign up with google", style: Stylings.subHeader.copyWith(color: Stylings.brown),),
+                      Icon(Icons.g_mobiledata_rounded,color: Stylings.brown,size: 20,),
+                      Text("Sign in with google", style: Stylings.subHeader.copyWith(color: Stylings.brown),),
                     ],
                   ),
                 ),
@@ -97,7 +97,7 @@ class InMethod extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(Icons.apple_rounded,color: Stylings.brown, size: 15,),
-                      Text("Sign up with Apple", style: Stylings.subHeader.copyWith(color: Stylings.brown),),
+                      Text("Sign in with Apple", style: Stylings.subHeader.copyWith(color: Stylings.brown),),
                     ],
                   ),
                 ),
