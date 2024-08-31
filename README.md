@@ -1,5 +1,6 @@
 # onyeije
 
 Transport ticketing app<br>
-Firebase Authentication
+Firebase Authentication<br>
+Due to dependency issues this project was stopped and continuned at ---
 
